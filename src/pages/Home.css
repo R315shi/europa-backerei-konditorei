@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+
+
+body{
+
+    background-image: url(../images/background.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.text1{
+    padding:6%;
+    margin:0px;
+    color:white;
+    font-family: lugrasimo;
+}
+.text1>h1{
+    font-size:100px;
+    color: #e4ab26;
+    margin: 0px;
+}
+.text1>h3{
+    font-size:20px;
+    color: #e4ab26;
+    margin:0px 0px 0px 10px;
+}
