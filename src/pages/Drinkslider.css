@@ -1,0 +1,128 @@
+/* Desktop Grid */
+.imagemenu1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+  gap: 0%;
+  padding-top: 30px;
+  margin: 0;
+  background-color: #3d0000;
+  position:relative;
+  
+}
+
+/* Shared Styles for Image Container */
+.image-with-text {
+  position: relative;
+  display: inline-block;
+  height: 580px;
+  width: 500px;
+  overflow: hidden;
+  border-radius: 50px;
+  margin-bottom: 50px; /* or whatever space you want below */
+}
+
+/* Image Style */
+.image1 {
+  width: 500px;
+  height: 580px;
+  border-radius: 50px;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.image1:hover {
+  height: 630px;
+  width: 550px;
+  opacity: 1;
+  margin: -25px;
+}
+
+/* Text over Image */
+.centered-text {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #cf9f33;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.image-with-text:hover .centered-text {
+  color: #3d0000;
+}
+
+/* Swiper Pagination Dots */
+.swiper-pagination {
+  bottom:-30px !important;
+}
+.swiper-pagination-bullets {
+  bottom: 10px !important;
+}
+.swiper-pagination-bullet {
+  background: #cf9f33;
+  opacity: 0.6;
+  height:15px;
+  width:15px;
+}
+.swiper-pagination-bullet-active {
+  background: #ffffff;
+  opacity: 1;
+}
+
+/* 🔽 Mobile Styles */
+@media (max-width: 1500px) {
+  .imagemenu1 {
+    padding-top: 10px;
+    display: block;
+  }
+
+  .swiper {
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-with-text {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 30px;
+    transition: none; /* Remove animation in mobile */
+  }
+
+  .image1 {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+    transition: none;
+  }
+
+  .image1:hover {
+    /* Completely disable hover scaling */
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+    opacity: 0.7;
+  }
+
+  .centered-text {
+    font-size: 1.2rem;
+    transition: none;
+  }
+
+  .image-with-text:hover .centered-text {
+    color: #cf9f33; /* Prevent color change on hover */
+  }
+}

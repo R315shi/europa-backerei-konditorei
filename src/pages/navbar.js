@@ -20,9 +20,6 @@ function Navbar() {
 
       <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
         <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
-        <li><Link to="/Product" onClick={() => setIsOpen(false)}>eee</Link></li>
-        <li><Link to="/" onClick={() => setIsOpen(false)}>eee</Link></li>
-        <li><Link to="/" onClick={() => setIsOpen(false)}>eee</Link></li>
       </ul>
     </nav>
   );

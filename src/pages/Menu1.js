@@ -12,7 +12,7 @@ const Menu1 = () => {
     <h3>DRINKS</h3>
     </div>
     <div className='imagemenu1'>
-       <Link to="/Product"> <img src={image1} className='image1' /></Link>
+       <Link to=""> <img src={image1} className='image1' /></Link>
         <img src={image2} className='image2' />
         <img src={image3} className='image3' />
     </div>

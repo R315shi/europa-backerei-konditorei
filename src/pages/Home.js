@@ -11,101 +11,52 @@ import image7 from "../images/menudisplay7.PNG";
 import image8 from "../images/menudisplay8.jpg";
 import image9 from "../images/menudisplay9.jpg";
 import logo from "../images/Logo.png";
-
-const images = [image4, image5, image6, image7, image8, image9];
-const visibleCount = 3;
-
+import ImagesSlider from "./Imageslider.js";
+import Drinkslider from "./Drinkslider.js"
 const Home = () => {
-  const [startIndex, setStartIndex] = useState(0);
-  const [isSliding, setIsSliding] = useState(false);
-  const [direction, setDirection] = useState("left");
-
-  const advance = () => {
-    if (isSliding) return;
-    setDirection("left");
-    setIsSliding(true);
-    setTimeout(() => {
-      setStartIndex((prev) => (prev + 1) % images.length);
-      setIsSliding(false);
-    }, 500);
-  };
-
-  const retreat = () => {
-    if (isSliding) return;
-    setDirection("right");
-    setIsSliding(true);
-    setTimeout(() => {
-      setStartIndex((prev) => (prev - 1 + images.length) % images.length);
-      setIsSliding(false);
-    }, 500);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(advance, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const visibleImages = images.concat(images).slice(startIndex, startIndex + visibleCount + 1);
 
   return (
     <div className="text1">
       <div className="logo">
-        <img src={logo} className="logoimg"/>
+        <img src={logo} className="logoimg" alt="Logo" />
       </div>
       <div className="menutext1">
         <h1>ON THE MENU</h1>
         <h3>DRINKS</h3>
       </div>
-      <div className="imagemenu1">
+      {/* <div className="imagemenu1">
         <div className="image-with-text">
-          <Link to="">
+          <Link to="/hotdrinks">
             <img src={image1} className="image1" alt="Menu 1" />
           </Link>
-          <p className="centered-text">COFFE</p>
+          <p className="centered-text">COFFEE</p>
         </div>
         <div className="image-with-text">
-          <Link to="/Product">
+          <Link to="/drinks">
             <img src={image2} className="image1" alt="Menu 2" />
           </Link>
           <p className="centered-text">DRINKS</p>   
         </div>
         <div className="image-with-text">
-          <Link to="">
+          <Link to="/alcoholicdrinks">
             <img src={image3} className="image1" alt="Menu 3" />
           </Link>
           <p className="centered-text">ALCOHOL</p>
         </div>
-      </div>
+      </div> */}
 
+<Drinkslider/>
       {/* Image slider */}
       <div className="menutext2">
         <h1>ON THE MENU</h1>
         <h3>FOOD</h3>
       </div>
-      <div className="slider-container">
-        <button className="nav left" onClick={retreat}>&#10094;</button>
-        <div className="slider-window">
-          <div className="slider-image">
-          <div
-            className={`slider-track ${
-              isSliding ? (direction === "left" ? "slide-left" : "slide-right") : ""
-            }`}
-            key={startIndex}
-          >
-            {visibleImages.map((img, i) => (
-              <img key={i} src={img} alt={`Slide ${i}`} />
-            ))}
-            </div>
-          </div>
-        </div>
-        <button className="nav right" onClick={advance}>&#10095;</button>
-      </div>
-
+      <ImagesSlider/>
       <footer>
         <div className="footer-container">
           <div className="footer-section about">
             <h2>About Us</h2>
-            <p>R3 Gaming Shop<br />Iu mirpresim</p>
+            <p>Europa-bakerei-konditorei<br />Welcome</p>
           </div>
           <div className="footer-section contact">
             <h2>Contact Us</h2>

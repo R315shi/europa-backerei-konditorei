@@ -1,83 +1,52 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import { Link } from 'react-router-dom';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import './Imageslider.css';
 
-import image4 from "../images/menudisplay4.jpg";
-import image5 from "../images/menudisplay5.PNG";
-import image6 from "../images/menudisplay6.jpg";
-import image7 from "../images/menudisplay7.PNG";
-import image8 from "../images/menudisplay8.jpg";
-import image9 from "../images/menudisplay9.jpg";
+import image1 from '../images/menudisplay4.jpg';
+import image2 from '../images/menudisplay5.PNG';
+import image3 from '../images/menudisplay6.jpg';
+import image4 from '../images/menudisplay7.PNG';
+import image5 from '../images/menudisplay8.jpg';
+import image6 from '../images/menudisplay9.jpg';
+
 const images = [
-  image4,
-  image5,
-  image6,
-  image7,
-  image8,
-  image9,
+  { src: image1, text: 'PIZZA' },
+  { src: image2, text: 'BURGER' },
+  { src: image3, text: 'GRILL' },
+  { src: image4, text: 'PASTA' },
+  { src: image5, text: 'BUREK' },
+  { src: image6, text: 'SALAD' },
 ];
 
-const visibleCount = 3;
-
-export default function SliderStrip() {
-  const [startIndex, setStartIndex] = useState(0);
-  const [isSliding, setIsSliding] = useState(false);
-
-  const advance = () => {
-    if (!isSliding) {
-      setIsSliding(true);
-      setTimeout(() => {
-        setStartIndex((prev) => (prev + 1) % images.length);
-        setIsSliding(false);
-      }, 500); // match CSS animation duration
-    }
-  };
-
-  const retreat = () => {
-    if (!isSliding) {
-      setIsSliding(true);
-      setTimeout(() => {
-        setStartIndex((prev) =>
-          (prev - 1 + images.length) % images.length
-        );
-        setIsSliding(false);
-      }, 500);
-    }
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      advance();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const visibleImages = images
-    .concat(images)
-    .slice(startIndex, startIndex + visibleCount + 1);
-
+export default function ImageSlider() {
   return (
-    <div>
-       <div className='menutext2'>
-    <h1>ON THE MENU</h1>
-    <h3>DRINKS</h3>
-    </div>
-    <div className="slider-container">
-      <button className="nav left" onClick={retreat}>
-        &#10094;
-      </button>
-      <div className="slider-window">
-        <div
-          className={`slider-track ${isSliding ? "sliding" : ""}`}
-          key={startIndex}
-        >
-          {visibleImages.map((img, i) => (
-            <img key={i} src={img} alt={`Slide ${i}`} />
-          ))}
-        </div>
-      </div>
-      <button className="nav right" onClick={advance}>
-        &#10095;
-      </button>
-    </div>
+    <div className="slider-container2">
+      <Swiper
+        modules={[Autoplay, Pagination]}
+        spaceBetween={70}
+        slidesPerView={3}
+        loop={true}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        breakpoints={{
+          1400: { slidesPerView: 3 },
+          1024: { slidesPerView: 2 },
+          600: { slidesPerView: 1 },
+        }}
+      >
+        {images.map((img, index) => (
+          <SwiperSlide key={index}>
+            <Link to={`/${img.text.toLowerCase()}`} className="image-with-text-slider">
+              <img src={img.src} alt={img.text} className="image1slider" />
+              <p className="centered-text">{img.text}</p>
+            </Link>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }
