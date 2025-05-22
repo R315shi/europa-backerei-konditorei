@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import MapPage from './pages/MapPage';
 import Home from './pages/Home';
 import Navbar from './pages/navbar';
 import ProductPage from './components/ProductPage';
+import CustomerReviews from './pages/CustomerReviews';
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,8 @@ function App() {
         <Route path="/burek" element={<ProductPage type="burek" />} />
         <Route path="/salad" element={<ProductPage type="salad" />} />
         <Route path="/burger" element={<ProductPage type="burger" />} />
+        <Route path="/location" element={<MapPage />} />
+        {/* <Route path="/reviews" element={<CustomerReviews />} /> */}
       </Routes>
     </Router>
   );

@@ -1,0 +1,28 @@
+.map{
+    height:700px;
+    width:700px;
+}
+.maindiv{
+    height:700px;
+    width:700px;
+    overflow:hidden;
+    border-radius: 50px;
+}
+.structurediv{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;
+    gap:100px;
+    padding: 100px;
+}
+.locationtext{
+    color:white;
+    display:flex;
+    flex-direction:column; 
+    align-items:center;
+    justify-content: center;
+    background-color: #270000;
+    border:3px solid #e4ab26;
+    border-radius: 50px;
+}

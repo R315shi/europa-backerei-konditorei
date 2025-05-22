@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import Footer from '../pages/Footer';
 import { products } from '../data/Products';
 import '../components/ProductPage.css';
 
@@ -27,6 +27,7 @@ const ProductPage = ({ type }) => {
   };
 
   return (
+    <div className='menubody'>
     <div>
       {/* <h1 style={{ textAlign: 'center' }}>{type.toUpperCase()}</h1> */}
       <div
@@ -65,6 +66,8 @@ const ProductPage = ({ type }) => {
           );
         })}
       </div>
+    </div>
+    <Footer />
     </div>
   );
 };

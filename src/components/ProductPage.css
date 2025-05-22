@@ -1,3 +1,9 @@
+.menubody{
+  background-image: url(../images/productmenubackground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
 .productgriddiv {
   display: grid;
   /* gridTemplateColumns is inline in your component */
