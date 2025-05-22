@@ -33,9 +33,10 @@ export default function ImageSlider() {
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         breakpoints={{
-          1400: { slidesPerView: 3 },
-          1024: { slidesPerView: 2 },
+          1500: { slidesPerView: 3 },
+          900: { slidesPerView: 2 },
           600: { slidesPerView: 1 },
+          0: { slidesPerView: 1 },
         }}
       >
         {images.map((img, index) => (
